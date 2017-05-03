@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartAction>Project</StartAction>
+    <StartProgram>C:\Program Files %28x86%29\NUnit.Framework-3.6.1\bin\net-4.0\nunitlite.tests.exe</StartProgram>
+    <StartArguments>c:\__work\project\test1\EtmilanAutomation\EtmilanAutomation\bin\Debug\EtmilanAutomation.dll</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\NUnit.Console-3.6.1\nunit3-console.exe</StartProgram>
+    <StartArguments>c:\__work\project\test1\EtmilanAutomation\EtmilanAutomation\bin\Debug\EtmilanAutomation.dll</StartArguments>
+  </PropertyGroup>
+</Project>
