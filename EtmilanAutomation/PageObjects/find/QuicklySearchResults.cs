@@ -20,10 +20,10 @@ namespace EtmilanAutomation.PageObjects
         public String getCellValue(String columnName, int row)
         {
             int columnIndex = 0;
-            ReadOnlyCollection<IWebElement> columns = resultsTable.FindElements(By.TagName("th"));
+            ReadOnlyCollection<IWebElement> columns = resultsTable.FindElements(By.CssSelector("th input"));
             for(int i = 0; i< columns.Count; i++)
             {
-                if (columns[i].Text.Equals(columnName))
+                if (columns[i].GetAttribute("value").Equals(columnName))
                 {
                     columnIndex = i+1;
                     break;
@@ -36,7 +36,7 @@ namespace EtmilanAutomation.PageObjects
         public String getCellValue(int column, int row)
         {
             row = row + headerRow;
-            return resultsTable.FindElement(By.CssSelector("table.List tr:nth-child(" + row + ") td:nth-child(1)")).Text;
+            return resultsTable.FindElement(By.CssSelector("table.List tr:nth-child(" + row + ") td:nth-child(" + column  + ")")).Text;
         }
     }
 }

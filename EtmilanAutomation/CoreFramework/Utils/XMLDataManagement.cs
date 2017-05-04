@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Xml;
 
@@ -9,38 +10,47 @@ namespace EtmilanAutomation.CoreFramework.Utils
     public class XMLDataManagement
     {
         private XmlDocument xmlDoc;
+        private String str1;
 
-        private XmlDocument GetXMLInstance(String str)
+        public XMLDataManagement(String str)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            if (str != null)
-            {
-                xmlDoc.LoadXml(str);
-            }
-            return xmlDoc;
+            xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(WebUtility.HtmlDecode(str));
+            //xmlDoc.LoadXml(str);
+            //XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
+           // nsmgr.AddNamespace("ab", "http://schemas.xmlsoap.org/soap/envelope/");
         }
 
-        public String ModifyNode(String str, String path, String valueNode)
+        public void ModifyNode(String tag, String value)
         {
-            GetXMLInstance(str);
-            XmlNode xmlNode = xmlDoc.SelectSingleNode(path);
-            if (xmlNode != null)
-            {
-                xmlNode.InnerText = valueNode; // Set to new value.
-            }
-            return xmlDoc.OuterXml;
+            xmlDoc.GetElementsByTagName(tag)[0].InnerText = value;
         }
 
-        public String ModifyAttribute(String str, String path, String valueAttr)
+        public void ModifyNode(String tag, int value)
         {
-            GetXMLInstance(str);
+            xmlDoc.GetElementsByTagName(tag)[0].InnerText = value.ToString();
+        }
+
+        public void ModifyAttribute(String path, String valueAttr)
+        {
             XmlAttribute formId = (XmlAttribute)xmlDoc.SelectSingleNode(path);
             if (formId != null)
             {
                 formId.Value = valueAttr; // Set to new value.
             }
+        }
+
+        public String GetNodeValue(String node)
+        {
+            return xmlDoc.GetElementsByTagName(node)[0].InnerText;
+        }
+
+        public String Output()
+        {
             return xmlDoc.OuterXml;
         }
+
+
     }
 }
 

@@ -16,7 +16,7 @@ namespace EtmilanAutomation.PageObjects
         private IWebElement usernameInput { get; set; }
 
         [LoadElement]
-        [FindsBy(How = How.Name, Using = "Run")]
+        [FindsBy(How = How.CssSelector, Using = "div[id=DashboardPanel_9] input[name=Run]")]
         private IWebElement runButton { get; set; }
 
         public QuicklySearchResults SelectSupplierAndRun(String value)
