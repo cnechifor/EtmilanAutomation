@@ -13,5 +13,17 @@ namespace EtmilanAutomation.PageObjects.tools
         [LoadElement]
         [FindsBy(How = How.Name, Using = "Second")]
         protected IWebElement selectInput { get; set; }
+
+        [FindsBy(How = How.CssSelector, Using = "div[class='StageLeft Present'] span")]
+        protected IWebElement updateInput { get; set; }
+
+        [FindsBy(How = How.Name, Using = "Complete")]
+        protected IWebElement completeInput { get; set; }
+
+        
+        public void ClickOnComplete()
+        {
+            completeInput.Click();
+        }
     }
 }

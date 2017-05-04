@@ -24,7 +24,7 @@ namespace EtmilanAutomation.CoreFramework
         [OneTimeTearDown]
         public void TestFixtureTearDown()
         {
-            //browser.StopBrowser();
+            browser.StopBrowser();
         }
 
     }

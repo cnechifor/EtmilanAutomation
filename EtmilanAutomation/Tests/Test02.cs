@@ -1,4 +1,5 @@
 ﻿using EtmilanAutomation.CoreFramework;
+using EtmilanAutomation.CoreFramework.Utils;
 using EtmilanAutomation.PageObjects;
 using EtmilanAutomation.PageObjects.tools;
 using NUnit.Framework;
@@ -39,8 +40,26 @@ namespace EtmilanAutomation.Tests
             updateTool = updateTool.ClickAddRow();
 
             //Step 8 : Enter the following values in the new row :
-            updateTool.addValue(1, "*");
-            updateTool.addValue(2, "Household Property");
+            //a.Managing Agent : *
+            //b.Workstream : Household Property
+            //c.Loss Type : Accidental Damage
+            //d.Supplier Type : Third - Party Administrator
+            //e.DA Limit : 15,000
+
+            updateTool.SetManagingAgent("*");
+            updateTool.SetWorkstream("Household Property");
+            updateTool.SetLossType("Accidental damage");
+            updateTool.SetSupplierType("Third-Party Administrator");
+            updateTool.SetDALimit("15000.00");
+
+            List<String> expectedList = new List<String> { "*", "Household Property", "Accidental damage", "Third-Party Administrator", "15000.00" };
+
+            //Step 9 : Click on Update
+            updateTool.ClickOnComplete();
+
+            //Step 10 : Confirm row has been updated correctly
+            List<String> actualValues = updateTool.GetValuesWithDALimit("15000.00");
+            Util.CompareValuesInLists(expectedList, actualValues);
         }
     }
 }
