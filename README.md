@@ -56,5 +56,5 @@ App.config file contains the following settings:
  -     <add key="url" value="https://ti6.etmilan.com" /> is the URL of the web application
  -      <add key="profile" value="CHROME" /> is the type of the browser for the test execution. Currently only CHROME and FIREFOX browsers are supported.
  -      <add key="timeToLoad" value="50" /> is the default loading time(in seconds) of the application. The value can be increased in case the application is slow
- -      <add key="user" value="btronixInsurer.user" />  is the default user
- -      <add key="password" value="Adjuno9" /> is the default password.
+ -      <add key="user" value="XXX" />  is the default user
+ -      <add key="password" value="XXX" /> is the default password.
