@@ -53,7 +53,7 @@ e.g.
 ##### Set the general properties
 The project provides you the ability to change the general properties like: the default user, the password or the browser type where the tests will run.
 App.config file contains the following settings: 
- -     <add key="url" value="https://ti6.etmilan.com" /> is the URL of the web application
+ -     <add key="url" value="https://app.com" /> is the URL of the web application
  -      <add key="profile" value="CHROME" /> is the type of the browser for the test execution. Currently only CHROME and FIREFOX browsers are supported.
  -      <add key="timeToLoad" value="50" /> is the default loading time(in seconds) of the application. The value can be increased in case the application is slow
  -      <add key="user" value="XXX" />  is the default user
