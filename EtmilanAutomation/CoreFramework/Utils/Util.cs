@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -38,6 +39,15 @@ namespace EtmilanAutomation.CoreFramework.Utils
             Assert.IsTrue(notMatch.Equals(""),
                           "The following values exist in list2 but don't exist in list1 :" + notMatch);
 
+        }
+
+
+        public static void UpdateAppSettings(String key, String value)
+        {
+            Configuration configuration1 = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            configuration1.AppSettings.Settings[key].Value = value;
+            configuration1.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }

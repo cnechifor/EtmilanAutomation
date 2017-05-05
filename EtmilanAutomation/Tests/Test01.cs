@@ -1,20 +1,20 @@
 ﻿using EtmilanAutomation.CoreFramework;
+using EtmilanAutomation.CoreFramework.Utils;
 using EtmilanAutomation.PageObjects;
+using EtmilanAutomation.PageObjects.tools;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
-
+using System.Xml;
 
 namespace EtmilanAutomation.Tests
 {
     [TestFixture]
     class Test01 : TestBase
     {
-        public static int messageIDValue;
-        public static int btronixtestclaim = 1;
 
         [Test]
         public void EtmilanTest01()
@@ -22,24 +22,33 @@ namespace EtmilanAutomation.Tests
             //Step 1 :  Login (as Insurer) to the following URL: ti6.etmilan.com
             Login loginPage = new Login();
             loginPage.Logon();
+            
 
             //Step 2: Select Tools  XML Submission Tool
             JSMenu menu = new JSMenu();
-            XMLSubmissionTool xmlSelection = (XMLSubmissionTool)menu.SelectItem("XML Submission Tool");
+            Tools tools = menu.ClickTools();
+            XMLSubmissionTool xmlSelection = (XMLSubmissionTool)tools.SelectTool("XML Submission Tool");
+
+            //XMLSubmissionTool xmlSelection = (XMLSubmissionTool)menu.SelectItem("XML Submission Tool");
 
             //Step 3 : From Message Templates, Select REST Household Property First Tier instruction with Legal Panel – 14
             xmlSelection.SelectMessageTemplate("REST - Household Property First Tier Instruction with Legal Panel - 14");
 
             //Step 4: From the XML message, update the fields
             xmlSelection.SetXmlMessageContent();
-            messageIDValue = Int32.Parse(ConfigurationManager.AppSettings["messageID"]) + 1;
+
+            int messageIDValue = Int32.Parse(ConfigurationManager.AppSettings["messageID"]) + 1;
+            Util.UpdateAppSettings("messageID", Convert.ToString(messageIDValue + 1));
+        
 
             xmlSelection.ModifyXMLNode("MessageID", messageIDValue, 1);
-            xmlSelection.ModifyXMLNode("SupplierName", "Imperial Consultants", 2);
+            xmlSelection.ModifyXMLNode("SupplierName", "_Feature Test Supplier V14", 2);
             xmlSelection.ModifyXMLNode("SupplierType", "Third-Party Administrator", 2);
+
+            int btronixtestclaim = Int32.Parse(ConfigurationManager.AppSettings["ClaimNumber"]) + 1;
             String claimNumber = "btronixtestclaim" + btronixtestclaim;
             xmlSelection.ModifyXMLNode("ClaimNumber", claimNumber, 2);
-            btronixtestclaim++;
+            Util.UpdateAppSettings("ClaimNumber", claimNumber);
 
             xmlSelection.PasteXMLMessage();
 
