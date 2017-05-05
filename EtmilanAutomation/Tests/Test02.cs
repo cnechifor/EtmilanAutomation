@@ -24,10 +24,10 @@ namespace EtmilanAutomation.Tests
 
             //Step 2: Select Tools   DA and Fee Limits
             JSMenu menu = new JSMenu();
+            DAAndFeeLimits feeLimits = (DAAndFeeLimits)menu.SelectItem("DA and Fee Limits");
 
             //Step 3: Choose "_Feature Test Supplier V14
             //Step 4 : Click on Select
-            DAAndFeeLimits feeLimits = (DAAndFeeLimits)menu.SelectItem("DA and Fee Limits");
             feeLimits = feeLimits.SelectSupplierAndSelect("_Feature Test Supplier V14");
 
             //Step 5 : Click on New

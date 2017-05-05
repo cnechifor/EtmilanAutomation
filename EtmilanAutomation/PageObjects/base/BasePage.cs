@@ -18,7 +18,7 @@ namespace EtmilanAutomation.CoreFramework
         protected BrowserManager browser = BrowserManager.Instance;
         protected BasePage()
         {
-            PageFactory.InitElements(this, new RetryingElementLocator(browser.GetBrowser(), TimeSpan.FromSeconds(20)));
+            PageFactory.InitElements(this, new RetryingElementLocator(browser.GetBrowser(), TimeSpan.FromSeconds(30)));
             isLoaded(typeof(T));
         }
 
@@ -42,7 +42,7 @@ namespace EtmilanAutomation.CoreFramework
                     break;
             }
 
-            WebDriverWait wait = new WebDriverWait(browser.GetBrowser(), TimeSpan.FromSeconds(7));
+            WebDriverWait wait = new WebDriverWait(browser.GetBrowser(), TimeSpan.FromSeconds(30));
             wait.Until(ExpectedConditions.ElementIsVisible(by));
         }
 
