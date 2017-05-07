@@ -11,6 +11,9 @@ namespace EtmilanAutomation.PageObjects.tools
     public class StageBar : BasePage<StageBar>
     {
         [LoadElement]
+        [FindsBy(How = How.Id, Using = "OptionsBar")]
+        protected IWebElement optionsBar { get; set; }
+
         [FindsBy(How = How.Name, Using = "Second")]
         protected IWebElement selectInput { get; set; }
 
