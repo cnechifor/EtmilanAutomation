@@ -29,26 +29,20 @@ namespace EtmilanAutomation.Tests
             Tools tools = menu.ClickTools();
             XMLSubmissionTool xmlSelection = (XMLSubmissionTool)tools.SelectTool("XML Submission Tool");
 
-            //XMLSubmissionTool xmlSelection = (XMLSubmissionTool)menu.SelectItem("XML Submission Tool");
-
             //Step 3 : From Message Templates, Select REST Household Property First Tier instruction with Legal Panel – 14
             xmlSelection.SelectMessageTemplate("REST - Household Property First Tier Instruction with Legal Panel - 14");
 
             //Step 4: From the XML message, update the fields
             xmlSelection.SetXmlMessageContent();
 
-            int messageIDValue = Int32.Parse(ConfigurationManager.AppSettings["messageID"]) + 1;
-            Util.UpdateAppSettings("messageID", Convert.ToString(messageIDValue + 1));
-        
-
+            String messageIDValue = Util.GenerateRandomMessageId();
+       
             xmlSelection.ModifyXMLNode("MessageID", messageIDValue, 1);
             xmlSelection.ModifyXMLNode("SupplierName", "_Feature Test Supplier V14", 2);
             xmlSelection.ModifyXMLNode("SupplierType", "Third-Party Administrator", 2);
 
-            int btronixtestclaim = Int32.Parse(ConfigurationManager.AppSettings["ClaimNumber"]) + 1;
-            String claimNumber = "btronixtestclaim" + btronixtestclaim;
+             String claimNumber = Util.GenerateRandomName("btronixtestclaim", 100, 999);
             xmlSelection.ModifyXMLNode("ClaimNumber", claimNumber, 2);
-            Util.UpdateAppSettings("ClaimNumber", claimNumber);
 
             xmlSelection.PasteXMLMessage();
 

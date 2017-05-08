@@ -19,19 +19,24 @@ namespace EtmilanAutomation.CoreFramework.Utils
         {
             String tagL = null;
             String tagR = null;
+            String tagRegExp = null;
 
             if (type == 1)
             {
                 tagL = "<" + tag + ">";
+                tagRegExp = "<\\/" + tag + ">";
                 tagR = "</" + tag + ">";
+                return Regex.Replace(str, tagL + ".*" + tagRegExp, tagL + value.ToString() + tagR);
             }
             if (type == 2)
             {
                 tagL = "&lt;" + tag + "&gt;";
                 tagR = "&lt;/" + tag + "&gt;";
+
+                Regex x = new Regex("(" + tagL + ")(.*?)(" + tagR + ")");
+                return x.Replace(str, "$1" + value + "$3");
             }
-            Regex x = new Regex("(" + tagL + ")(.*?)(" + tagR + ")");
-            return x.Replace(str, "$1" + value + "$3");
+            return null;
         }
 
         public String ModifyElement(String tag, int value, int type)

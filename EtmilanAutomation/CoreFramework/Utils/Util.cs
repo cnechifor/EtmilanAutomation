@@ -49,5 +49,18 @@ namespace EtmilanAutomation.CoreFramework.Utils
             configuration1.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection("appSettings");
         }
+
+
+        public static string GenerateRandomMessageId()
+        {
+            Random rnd = new Random();
+            return  Convert.ToString(rnd.Next(1000000000, Int32.MaxValue - 1));
+        }
+
+        public static string GenerateRandomName(string startWord, int start, int end)
+        {
+            Random rnd = new Random();
+            return startWord + rnd.Next(start, end);
+        }
     }
 }
