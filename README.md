@@ -40,6 +40,16 @@ In case you want to run the tests on Firefox, you should configure the PATH for 
 Open Control Panel > System > Advanced > Open Control Panel > System > Advanced System Settings > Environment Variables....In the Environment Variables window, highlight the Path variable in the System variables section and click the Edit button. Add the the directory containing 'firefox.exe'' to your PATH. e.g.: "c:\Program Files (x86)\Mozilla Firefox\"
 
 ### Running the tests
+
+##### Set the general properties
+The project provides you the ability to change the general properties like: the default user, the password or the browser type where the tests will run.
+App.config file contains the following settings: 
+ -     <add key="url" value="https://app.com" /> is the URL of the web application
+ -      <add key="profile" value="CHROME" /> is the type of the browser for the test execution. Currently only CHROME and FIREFOX browsers are supported.
+ -      <add key="timeToLoad" value="50" /> is the default loading time(in seconds) of the application. The value can be increased in case the application is slow
+ -      <add key="user" value="XXX" />  is the default user
+ -      <add key="password" value="XXX" /> is the default password.
+ 
 ##### From Visual Studio
 When you build the test project, the tests appear in Test Explorer. If Test Explorer is not visible, choose Test on the Visual Studio menu, choose Windows, and then choose Test Explorer.
  - To run all the tests in the solution, choose Run All.
@@ -50,11 +60,18 @@ Navigate to your nunit console path (location where NUnit console package is ins
 >nunit3-console.exe <path to test.EtmilanAutomation.dll>
 e.g.
 >nunit3-console.exe c:\EtmilanAutomation\bin\Release\EtmilanAutomation.dll
-##### Set the general properties
-The project provides you the ability to change the general properties like: the default user, the password or the browser type where the tests will run.
-App.config file contains the following settings: 
- -     <add key="url" value="https://app.com" /> is the URL of the web application
- -      <add key="profile" value="CHROME" /> is the type of the browser for the test execution. Currently only CHROME and FIREFOX browsers are supported.
- -      <add key="timeToLoad" value="50" /> is the default loading time(in seconds) of the application. The value can be increased in case the application is slow
- -      <add key="user" value="XXX" />  is the default user
- -      <add key="password" value="XXX" /> is the default password.
+
+ 
+ ##### From Team Services
+The tests are running into Continuous Integration environment. In Visual Studio Team Service we defined a build that is able to run the tests on a private agent.
+
+> Navigate to Team Service url: https://adjunobtronix.visualstudio.com/.
+> Login with btronix account.
+> Select "Project" tab and click on "MyFirstProject" project.
+> Navigate to "Build & Release" > Builds > 'MyFirstProject-RunTests' build.
+> Click on "Queue new build..." button.
+> Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appears and then click on 'OK' button.
+> The build just started ....
+> Wait until the build is completed. 
+> You will see "Build succeeded" in the green toolbar
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
