@@ -74,4 +74,4 @@ Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appea
 The build just started ....
 Wait until the build is completed. 
 You will see "Build succeeded" in the green toolbar
-!(relative/path/to/img.jpg?raw=true "Title")
+![ScreenShot](relative/path/to/img.jpg?raw=true)
