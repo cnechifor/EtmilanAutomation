@@ -66,12 +66,12 @@ e.g.
 The tests are running into Continuous Integration environment. In Visual Studio Team Service we defined a build that is able to run the tests on a private agent.
 
 > Navigate to Team Service url: https://adjunobtronix.visualstudio.com/.
-> Login with btronix account.
-> Select "Project" tab and click on "MyFirstProject" project.
-> Navigate to "Build & Release" > Builds > 'MyFirstProject-RunTests' build.
-> Click on "Queue new build..." button.
-> Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appears and then click on 'OK' button.
-> The build just started ....
-> Wait until the build is completed. 
-> You will see "Build succeeded" in the green toolbar
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+Login with btronix account.
+Select "Project" tab and click on "MyFirstProject" project.
+Navigate to "Build & Release" > Builds > 'MyFirstProject-RunTests' build.
+Click on "Queue new build..." button.
+Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appears and then click on 'OK' button.
+The build just started ....
+Wait until the build is completed. 
+You will see "Build succeeded" in the green toolbar
+!(relative/path/to/img.jpg?raw=true "Title")
