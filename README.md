@@ -49,11 +49,12 @@ App.config file contains the following settings:
  -      <add key="timeToLoad" value="50" /> is the default loading time(in seconds) of the application. The value can be increased in case the application is slow
  -      <add key="user" value="XXX" />  is the default user
  -      <add key="password" value="XXX" /> is the default password.
- 
+
 ##### From Visual Studio
 When you build the test project, the tests appear in Test Explorer. If Test Explorer is not visible, choose Test on the Visual Studio menu, choose Windows, and then choose Test Explorer.
  - To run all the tests in the solution, choose Run All.
  - To run a single test in the solution, click right on the test and choose 'Run Selected Tests
+ 
 ##### From the command line
 Assure [Nunit console](https://github.com/nunit/nunit-console/releases/tag/3.6.1)  is installed on your local machine.
 Navigate to your nunit console path (location where NUnit console package is installed) and execute the following command line in order to run the EtmilanAutomation tests:
@@ -61,17 +62,23 @@ Navigate to your nunit console path (location where NUnit console package is ins
 e.g.
 >nunit3-console.exe c:\EtmilanAutomation\bin\Release\EtmilanAutomation.dll
 
- 
- ##### From Team Services
+##### From Team Services
 The tests are running into Continuous Integration environment. In Visual Studio Team Service we defined a build that is able to run the tests on a private agent.
 
-> Navigate to Team Service url: https://adjunobtronix.visualstudio.com/.
-Login with btronix account.
-Select "Project" tab and click on "MyFirstProject" project.
-Navigate to "Build & Release" > Builds > 'MyFirstProject-RunTests' build.
-Click on "Queue new build..." button.
-Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appears and then click on 'OK' button.
-The build just started ....
-Wait until the build is completed. 
-You will see "Build succeeded" in the green toolbar
-![ScreenShot](relative/path/to/img.jpg?raw=true)
+- Navigate to Team Service url: https://adjunobtronix.visualstudio.com/.
+- Login with btronix account.
+- Select "Project" tab and click on "MyFirstProject" project.
+- Navigate to "Build & Release" > Builds > 'MyFirstProject-RunTests' build.
+- Click on "Queue new build..." button.
+- Wait until the pop-up with title 'Queue build for MyFirstProject-RunTests' appears and then click on 'OK' button.
+- The build just started ....
+- Wait until the build is completed
+
+
+![build](images/buildCompleted.PNG)
+
+- If you want to check the test results, just click on  'Tests' from the build bar.
+
+
+![build](images/Tests.PNG)
+
