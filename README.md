@@ -80,5 +80,5 @@ The tests are running into Continuous Integration environment. In Visual Studio 
 - If you want to check the test results, just click on  'Tests' from the build bar.
 
 
-![build](images/Tests.PNG)
+![build](images/tests.PNG)
 
