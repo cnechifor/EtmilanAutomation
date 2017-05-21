@@ -18,7 +18,7 @@ namespace EtmilanAutomation.CoreFramework
         protected BrowserManager browser = BrowserManager.Instance;
         protected BasePage()
         {
-            PageFactory.InitElements(this, new RetryingElementLocator(browser.GetBrowser(), TimeSpan.FromSeconds(30)));
+            PageFactory.InitElements(this, new RetryingElementLocator(browser.GetBrowser(), TimeSpan.FromSeconds(40)));
             isLoaded(typeof(T));
         }
 

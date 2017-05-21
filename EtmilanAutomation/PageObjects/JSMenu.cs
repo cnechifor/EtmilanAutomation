@@ -12,11 +12,14 @@ namespace EtmilanAutomation.PageObjects
 {
     public class JSMenu : BasePage<JSMenu>
     {
+
         [LoadElement]
+        [FindsBy(How = How.Id, Using = "JSMenuH")]
+        private IWebElement jsMenu { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = "a[title=Tools]")]
         private IWebElement toolsLink { get; set; }
 
-        [LoadElement]
         [FindsBy(How = How.CssSelector, Using = "div#JSMenuH a[title='Home']")]
         private IWebElement homeLink { get; set; }
 

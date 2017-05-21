@@ -52,17 +52,17 @@
     <Reference Include="WebDriver.Support, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.Support.3.3.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.runner.visualstudio.testadapter, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\xunit.runner.visualstudio.0.99.2\lib\xunit.runner.visualstudio.testadapter.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreFramework\BrowserManager.cs" />
+    <Compile Include="CoreFramework\Utils\Step.cs" />
     <Compile Include="CoreFramework\Utils\Util.cs" />
     <Compile Include="CoreFramework\Utils\XMLDataManagement.cs" />
     <Compile Include="CoreFramework\Utils\XMLValueManagement.cs" />
     <Compile Include="PageObjects\base\BasePage.cs" />
     <Compile Include="CoreFramework\TestBase.cs" />
+    <Compile Include="PageObjects\find\InsuranceInstructionPlan.cs" />
+    <Compile Include="PageObjects\find\ReserveAndRecovery.cs" />
     <Compile Include="PageObjects\Home.cs" />
     <Compile Include="PageObjects\base\IBase.cs" />
     <Compile Include="PageObjects\base\LoadElement.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Test01.cs" />
     <Compile Include="Tests\Test02.cs" />
+    <Compile Include="Tests\Test03.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

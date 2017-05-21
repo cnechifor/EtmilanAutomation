@@ -16,6 +16,11 @@ namespace EtmilanAutomation.PageObjects
     {
         private static String URL = "&MenuId=&Action=Home";
 
+        [LoadElement]
+        [FindsBy(How = How.Id, Using = "Banner")]
+        private IWebElement bannerElement { get; set; }
+
+        
         public Home Get()
         {
            //base.Get(URL);

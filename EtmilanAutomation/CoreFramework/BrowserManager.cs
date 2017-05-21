@@ -32,7 +32,7 @@ namespace EtmilanAutomation.CoreFramework
 
         private int lenSourceBeforeClick;
 
-        private WebDriverWait browserWait;
+        private Step step;
 
         private BrowserManager()
         {
@@ -66,6 +66,13 @@ namespace EtmilanAutomation.CoreFramework
             browserDriver.Value = eventDriver;
 
             GetBrowser().Manage().Window.Maximize();
+        }
+
+        public Step StartStep(String testName)
+        {
+            step = new Step(GetBrowser());
+            step.TestName = testName;
+            return step;
         }
 
         /// <summary>
@@ -115,6 +122,7 @@ namespace EtmilanAutomation.CoreFramework
         {
             titleBeforeClick = GetBrowser().Title;
             lenSourceBeforeClick = GetBrowser().PageSource.Length;
+            step.No();
         }
 
         private void firingDriver_FindingElement(object sender, FindElementEventArgs e)

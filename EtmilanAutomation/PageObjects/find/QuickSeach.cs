@@ -12,11 +12,14 @@ namespace EtmilanAutomation.PageObjects
     public class QuickSeach : BasePage<QuickSeach>
     {
         [LoadElement]
-        [FindsBy(How = How.Id, Using = "extId_Dashboard_QuickSearchParams_9_PARAM_Supplier-inputEl")]
+        [FindsBy(How = How.CssSelector, Using = "form[name='LibertyForm'][action*='Quick%20Search']")]
+        private IWebElement container { get; set; }
+        
+        [FindsBy(How = How.CssSelector, Using = "form[name='LibertyForm'][action*='Quick%20Search'] input[id$='Supplier-inputEl']")]
         private IWebElement usernameInput { get; set; }
 
         [LoadElement]
-        [FindsBy(How = How.CssSelector, Using = "div[id=DashboardPanel_9] input[name=Run]")]
+        [FindsBy(How = How.CssSelector, Using = "form[name='LibertyForm'][action*='Quick%20Search'] input[name='Run']")]
         private IWebElement runButton { get; set; }
 
         public QuicklySearchResults SelectSupplierAndRun(String value)

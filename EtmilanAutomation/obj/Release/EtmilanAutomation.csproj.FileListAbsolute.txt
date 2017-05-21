@@ -1,0 +1,13 @@
+C:\__work\tfs\EtmilanAutomation\bin\Release\App.config
+C:\__work\tfs\EtmilanAutomation\bin\Release\EtmilanAutomation.dll.config
+C:\__work\tfs\EtmilanAutomation\bin\Release\EtmilanAutomation.dll
+C:\__work\tfs\EtmilanAutomation\bin\Release\EtmilanAutomation.pdb
+C:\__work\tfs\EtmilanAutomation\bin\Release\nunit.framework.dll
+C:\__work\tfs\EtmilanAutomation\bin\Release\WebDriver.dll
+C:\__work\tfs\EtmilanAutomation\bin\Release\WebDriver.Support.dll
+C:\__work\tfs\EtmilanAutomation\bin\Release\nunit.framework.xml
+C:\__work\tfs\EtmilanAutomation\bin\Release\WebDriver.xml
+C:\__work\tfs\EtmilanAutomation\bin\Release\WebDriver.Support.xml
+C:\__work\tfs\EtmilanAutomation\obj\Release\EtmilanAutomation.dll
+C:\__work\tfs\EtmilanAutomation\obj\Release\EtmilanAutomation.pdb
+C:\__work\tfs\EtmilanAutomation\obj\Release\EtmilanAutomation.csprojResolveAssemblyReference.cache
